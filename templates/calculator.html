@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2 style="text-align: center;">🧮 Simple Calculator</h2>
+
+<form method="POST" style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px;">
+    <input 
+        type="number" 
+        step="any" 
+        name="num1" 
+        placeholder="Enter first number" 
+        required 
+        style="padding: 10px; width: 60%; border-radius: 10px; border: 1px solid #ccc; font-size: 16px;"
+    >
+
+    <input 
+        type="number" 
+        step="any" 
+        name="num2" 
+        placeholder="Enter second number" 
+        required 
+        style="padding: 10px; width: 60%; border-radius: 10px; border: 1px solid #ccc; font-size: 16px;"
+    >
+
+    <select 
+        name="operation" 
+        required 
+        style="padding: 10px; width: 65%; border-radius: 10px; border: 1px solid #ccc; font-size: 16px;"
+    >
+        <option value="add">Add (+)</option>
+        <option value="subtract">Subtract (−)</option>
+        <option value="multiply">Multiply (×)</option>
+        <option value="divide">Divide (÷)</option>
+    </select>
+
+    <button 
+        type="submit" 
+        style="padding: 12px 25px; background-color: #f57c00; color: white; font-size: 16px; border: none; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);"
+    >
+        Calculate
+    </button>
+</form>
+
+{% if result is not none %}
+    <div style="margin-top: 30px; padding: 15px; background-color: #e0f7fa; border-radius: 15px; text-align: center; font-size: 20px; font-weight: bold;">
+        ✅ Result: {{ result }}
+    </div>
+{% endif %}
+
+<p style="text-align: center; margin-top: 40px; font-style: italic; color: #555;">
+    Math made simple — powered by Flask.
+</p>
+{% endblock %}
